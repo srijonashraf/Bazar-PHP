@@ -177,7 +177,6 @@ if (isset($_GET['edit'])) {
                     <input type="number" min="0" class="box" name="product_price" placeholder="Enter the product price" required>
                     <input type="file" class="box" name="product_image" accept="image/png, image/jpeg, image/jpg" required>
                     <input type="submit" value="Add Product" name="add_product" class="btn">
-                    <a href="index.php" class="btn">Go back</a>
                 </form>
             <?php } ?>
         </div>
