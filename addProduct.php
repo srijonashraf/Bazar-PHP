@@ -1,4 +1,20 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    // User is not logged in as admin, redirect to adminLogin.php
+    header("Location: admin.php");
+    exit();
+}
+
+if (isset($_POST['logout'])) {
+    session_destroy(); // Destroy the session
+    $_SESSION['username']="";
+    header("Location: admin.php"); // Redirect to the login page
+    exit();
+}
+
 @include 'config.php';
 
 // Add Product
@@ -94,9 +110,44 @@ if (isset($_GET['edit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/addProduct.css">
+
+    <style>
+        .navbar {
+
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+
+        .navbar .logout-btn {
+            margin-left: 10px;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            margin: 1rem;
+        }
+
+        .navbar h3 {
+            font-size: xx-large;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <h3 class="title">Admin Panel</h3>
+            <form action="" method="post">
+                <input type="submit" value="Logout" name="logout" class="btn logout-btn">
+            </form>
+        </div>
+    </div>
     <?php
     if (isset($message)) {
         foreach ($message as $msg) {
