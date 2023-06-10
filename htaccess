@@ -7,6 +7,3 @@ RewriteRule ^(.*)$ /admin.php [R=301,L]
 # Redirect to login.php if "login" is present in the URL
 RewriteCond %{QUERY_STRING} (^|&)search=login(&|$)
 RewriteRule ^(.*)$ /login.php [R=301,L]
-
-# Redirect all other URLs to a generic page or display an error message
-RewriteRule ^(.*)$ /404.php [R=301,L]
