@@ -71,14 +71,22 @@
         $loginUserName = $_POST["login_u_name"];
         $loginPassword = $_POST["login_password"];
 
-        // Query the database to check if the user exists with the provided username and password
-        $loginQuery = "SELECT * FROM `user` WHERE `username` = '$loginUserName' AND `password` = '$loginPassword'";
+        // Query the database to check if the user exists with the provided username
+        $loginQuery = "SELECT * FROM `user` WHERE `username` = '$loginUserName'";
         $loginResult = mysqli_query($conn, $loginQuery);
 
         if ($loginResult && mysqli_num_rows($loginResult) > 0) {
-            // User login is successful
-            header("Location: index.php");
-            exit();
+            $userData = mysqli_fetch_assoc($loginResult);
+            $hashedPassword = $userData['password'];
+
+            if (password_verify($loginPassword, $hashedPassword)) {
+                // User login is successful
+                header("Location: index.php");
+                exit();
+            } else {
+                // User login failed
+                echo "<script>alert('Login Failed')</script>";
+            }
         } else {
             // User login failed
             echo "<script>alert('Login Failed')</script>";
@@ -103,7 +111,9 @@
             echo "<script>alert('Username already exists!')</script>";
         } else {
             // Username does not exist, proceed with the signup process
-            $signupQuery = "INSERT INTO `user` (`first_name`, `last_name`, `username`, `email`, `password`) VALUES ('$firstName', '$lastName', '$userName', '$email', '$password')";
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT); // Create an encrypted password
+
+            $signupQuery = "INSERT INTO `user` (`first_name`, `last_name`, `username`, `email`, `password`) VALUES ('$firstName', '$lastName', '$userName', '$email', '$hashedPassword')";
 
             if (mysqli_query($conn, $signupQuery)) {
                 header("Location: index.php");
@@ -125,7 +135,6 @@
             }, "slow");
         });
     </script>
-
 </body>
 
 </html>
