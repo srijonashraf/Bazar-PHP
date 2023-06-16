@@ -44,6 +44,7 @@ html {
 }
 
 .message {
+  margin-top: 1rem;
   display: block;
   background: var(--bg-color);
   padding: 1.5rem 1rem;
