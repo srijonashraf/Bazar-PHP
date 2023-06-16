@@ -1,9 +1,0 @@
-RewriteEngine On
-
-# Redirect to admin.php if "admin" is present in the URL
-RewriteCond %{QUERY_STRING} (^|&)search=admin(&|$)
-RewriteRule ^(.*)$ /admin.php [R=301,L]
-
-# Redirect to login.php if "login" is present in the URL
-RewriteCond %{QUERY_STRING} (^|&)search=login(&|$)
-RewriteRule ^(.*)$ /login.php [R=301,L]

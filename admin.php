@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/form.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <title>Login</title>
+    <title>Admin Login</title>
     <style>
         body {
             display: flex;
@@ -19,6 +19,7 @@
         .login-page {
             display: flex;
             justify-content: center;
+            flex-direction: column;
             align-items: center;
             height: 100vh;
         }
@@ -46,6 +47,7 @@
 <body>
     <div class="login-page">
         <div class="form">
+            <h2 class="mb-4" style="font-family: Poppins;">Admin Panel</h2>
             <form class="login-form" action="" method="post">
                 <input type="text" placeholder="Username" name="login_u_name" required />
                 <input type="password" placeholder="Password" name="login_password" required />
