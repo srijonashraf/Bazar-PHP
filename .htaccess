@@ -1,5 +1,6 @@
 RewriteEngine On
+
+# Allow direct access to specific files
 RewriteRule ^admin$ /admin.php [L]
 RewriteRule ^login$ /login.php [L]
 ErrorDocument 404 /404.php
-
