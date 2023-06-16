@@ -49,14 +49,16 @@
             <form class="register-form" action="" method="post">
                 <input type="text" placeholder="First Name" name="f_name" required />
                 <input type="text" placeholder="Last Name" name="l_name" required />
-                <input type="text" placeholder="Username" name="u_name" required />
-                <input type="text" placeholder="Email" name="email" required />
+                <input type="text" placeholder="Username" name="u_name" pattern="^\S+$" title="Username cannot contain spaces" required />
+                <input type="email" placeholder="Email" name="email" required />
                 <input type="password" placeholder="Password" name="password" required />
+                <div class="error-message alert alert-danger" style="display: none;" id="password-error"></div>
+                <div class="success-message alert alert-success" style="display: none;" id="password-success"></div>
                 <button type="submit" name="signup">Sign Up</button>
                 <p class="message">Already registered? <a href="#">Sign In</a></p>
             </form>
             <form class="login-form" action="" method="post">
-                <input type="text" placeholder="Username" name="login_u_name" required />
+                <input type="text" placeholder="Username" name="login_u_name" pattern="^\S+$" title="Username cannot contain spaces" required />
                 <input type="password" placeholder="Password" name="login_password" required />
                 <button type="submit" name="login">Login</button>
                 <p class="message">Not registered? <a href="#">Sign Up</a></p>

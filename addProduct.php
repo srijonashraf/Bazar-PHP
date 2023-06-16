@@ -88,7 +88,6 @@ if (isset($_GET['edit'])) {
                 $message[] = 'Error updating the product.';
             }
         }
-       
     }
 
 
@@ -204,7 +203,7 @@ if (isset($_GET['edit'])) {
                             <td><?php echo $product_row['price']; ?></td>
                             <td>
                                 <a class="btn" href="addProduct.php?edit=<?php echo $product_row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                                <a class="btn" href="deleteProduct.php?delete=<?php echo $product_row['id']; ?>"><i class="fa-solid fa-trash"></i> Delete</a>
+                                <a class="btn" onclick="return confirm('Are you sure you want to delete this product?')" href="deleteProduct.php?delete=<?php echo $product_row['id']; ?>"><i class="fa-solid fa-trash"></i> Delete</a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -212,6 +211,7 @@ if (isset($_GET['edit'])) {
             </table>
         </div>
     </div>
+
 </body>
 
 </html>
