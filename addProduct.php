@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
 
 if (isset($_POST['logout'])) {
     session_destroy(); // Destroy the session
-    $_SESSION['username']="";
+    $_SESSION['username'] = "";
     header("Location: admin.php"); // Redirect to the login page
     exit();
 }
@@ -81,18 +81,14 @@ if (isset($_GET['edit'])) {
             $upload = mysqli_query($conn, $update_data);
 
             if ($upload) {
-                if (!empty($product_image)) {
-                    move_uploaded_file($product_image_tmp_name, $product_image_folder);
-                    $message[] = 'Product Updated!';
-                }
-                header('Location: addProduct.php');
-                exit();
+
+                move_uploaded_file($product_image_tmp_name, $product_image_folder);
+                $message[] = 'Product Updated!';
             } else {
                 $message[] = 'Error updating the product.';
             }
-        } else {
-            $message[] = 'No fields to update.';
         }
+       
     }
 
 
@@ -109,6 +105,7 @@ if (isset($_GET['edit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/addProduct.css">
 
     <style>
@@ -128,7 +125,7 @@ if (isset($_GET['edit'])) {
 
         .navbar-container {
             display: flex;
-            justify-content:space-between;
+            justify-content: space-between;
             align-items: center;
             margin: 1rem;
         }
@@ -148,27 +145,32 @@ if (isset($_GET['edit'])) {
             </form>
         </div>
     </div>
-    <?php
-    if (isset($message)) {
-        foreach ($message as $msg) {
-            echo '<span class="message">' . $msg . '</span>';
-        }
-    }
-    ?>
+
 
     <div class="container">
+        <?php
+        if (isset($message)) {
+            foreach ($message as $msg) {
+
+                if ($msg === "Product already exists!") {
+                    echo '<span class="message warning">' . $msg . '</span>';
+                } else if ($msg === 'Product Added!') {
+                    echo '<span class="message success">' . $msg . '</span>';
+                } else {
+                    echo '<span class="message">' . $msg . '</span>';
+                }
+            }
+        }
+        ?>
         <div class="admin-product-form-container centered">
-            <?php if (isset($success_message)) {
-                echo '<span class="success-message">' . $success_message . '</span>';
-            } ?>
             <?php if (isset($_GET['edit'])) { ?>
                 <form action="" method="post" enctype="multipart/form-data">
                     <h3 class="title">Update the product</h3>
                     <input type="text" class="box" name="product_name" value="<?php echo $row['name']; ?>" placeholder="Enter the product name" required>
                     <input type="number" min="0" class="box" name="product_price" value="<?php echo $row['price']; ?>" placeholder="Enter the product price" required>
-                    <input type="file" class="box" name="product_image" accept="image/png, image/jpeg, image/jpg">
+                    <input type="file" id="chooseFile" class="box" name="product_image" accept="image/png, image/jpeg, image/jpg">
                     <input type="submit" value="Update Product" name="update_product" class="btn">
-                    <a href="addProduct.php" class="btn">Cancel</a>
+                    <a href="addProduct.php" class="btn">Go Back</a>
                 </form>
             <?php } else { ?>
                 <form action="" method="post" enctype="multipart/form-data">
@@ -201,8 +203,8 @@ if (isset($_GET['edit'])) {
                             <td><?php echo $product_row['name']; ?></td>
                             <td><?php echo $product_row['price']; ?></td>
                             <td>
-                                <a class="btn" href="addProduct.php?edit=<?php echo $product_row['id']; ?>">Edit</a>
-                                <a class="btn" href="deleteProduct.php?delete=<?php echo $product_row['id']; ?>">Delete</a>
+                                <a class="btn" href="addProduct.php?edit=<?php echo $product_row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                                <a class="btn" href="deleteProduct.php?delete=<?php echo $product_row['id']; ?>"><i class="fa-solid fa-trash"></i> Delete</a>
                             </td>
                         </tr>
                     <?php } ?>

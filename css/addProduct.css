@@ -21,6 +21,18 @@
   text-transform: capitalize;
 }
 
+.warning{
+  background-color: #ffc107 !important;
+}
+
+.danger{
+  background-color: #dc3545 !important;
+}
+
+.sucess{
+  background-color: #198754 !important;
+}
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -46,10 +58,10 @@ html {
 .message {
   margin-top: 1rem;
   display: block;
-  background: var(--bg-color);
+  background: var(--green);
   padding: 1.5rem 1rem;
   font-size: 2rem;
-  color: var(--black);
+  color: var(--white);
   margin-bottom: 2rem;
   text-align: center;
 }
