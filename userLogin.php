@@ -120,6 +120,7 @@
             $signupQuery = "INSERT INTO `user` (`first_name`, `last_name`, `username`, `email`, `password`) VALUES ('$firstName', '$lastName', '$userName', '$email', '$hashedPassword')";
 
             if (mysqli_query($conn, $signupQuery)) {
+                $_SESSION['username'] = $userName;
                 header("Location: index.php");
                 exit();
             }
