@@ -67,6 +67,7 @@
     </div>
 
     <?php
+     session_start();
     if (isset($_POST['login'])) {
         require "config.php";
 
@@ -83,6 +84,7 @@
 
             if (password_verify($loginPassword, $hashedPassword)) {
                 // User login is successful
+                $_SESSION['username'] = $loginUserName;
                 header("Location: index.php");
                 exit();
             } else {

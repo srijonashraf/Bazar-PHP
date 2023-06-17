@@ -48,7 +48,7 @@
     <div class="login-page">
         <div class="form">
             <h2 class="mb-4" style="font-family: Poppins;">Admin Panel</h2>
-            <form class="login-form" action="" method="post">
+            <form class="login-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <input type="text" placeholder="Username" name="login_u_name" required />
                 <input type="password" placeholder="Password" name="login_password" required />
                 <button type="submit" name="login">Login</button>
@@ -67,13 +67,13 @@
         $loginPassword = $_POST["login_password"];
 
         // Query the database to check if the user exists with the provided username and password
-        $loginQuery = "SELECT * FROM `admin` WHERE `username` = '$loginUserName' AND `password` = '$loginPassword'";
+        $loginQuery = "SELECT * FROM `admin` WHERE `admin_username` = '$loginUserName' AND `admin_password` = '$loginPassword'";
         $loginResult = mysqli_query($conn, $loginQuery);
 
         if ($loginResult && mysqli_num_rows($loginResult) > 0) {
             // User login is successful
-            $_SESSION['username'] = $loginUserName;
-            header("Location: addProduct.php");
+            $_SESSION['admin_username'] = $loginUserName;
+            header("Location: adminPanel.php");
             exit();
         } else {
             // User login failed

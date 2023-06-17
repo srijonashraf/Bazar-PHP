@@ -3,26 +3,45 @@
 
 <?php include 'headTagContainer.php'; ?>
 
+
+<?php
+session_start();
+
+if (isset($_POST['userlogout'])) {
+    unset($_SESSION['username']); // Unset the specific session variable
+    header("Location: index.php"); // Redirect to the login page
+    exit();
+}
+
+?>
+
 <body>
 
     <section class="header" id="headerSection">
-        <form class="mx-4 py-3">
+        <form class="mx-4 py-3" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"> <!-- Added action attribute -->
             <div class="header-left">
                 <div class="searchbar-top">
                     <input class="text-sm pe-5 ps-2" type="text" placeholder="Search for item or brands" />
                 </div>
             </div>
             <div class="header-right">
-                <a href=""><i class="fa-solid fa-cart-shopping px-3 text-muted"></i></a>
-                <a href="login.php" class="login-button text-sm">Login</a>
+                <?php
+                if (isset($_SESSION['username'])) {
+                    // User is logged in
+                    echo '<a href="#"><i class="fa-solid fa-cart-shopping px-3 text-muted"></i></a>';
+                    echo '<input type="submit" value="Logout" name="userlogout" class="login-button text-sm">';
+                }
+                if (!isset($_SESSION['username'])) {
+                    echo ' <a href="userLogin.php" class="login-button text-sm">Login</a>';
+                }
+                ?>
             </div>
         </form>
-
     </section>
 
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 
 </body>
 
