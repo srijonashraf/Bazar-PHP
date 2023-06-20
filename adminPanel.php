@@ -2,14 +2,14 @@
 
 session_start();
 
-if (!isset($_SESSION['admin_username'])) {
+if (!isset($_SESSION['adminloginUserName'])) {
     // User is not logged in as admin, redirect to adminLogin.php
     header("Location: adminLogin.php");
     exit();
 }
 
 if (isset($_POST['adminlogout'])) {
-    unset($_SESSION['admin_username']); // Unset the specific session variable
+    unset($_SESSION['adminloginUserName']); // Unset the specific session variable
     header("Location: adminLogin.php"); // Redirect to the login page
     exit();
 }

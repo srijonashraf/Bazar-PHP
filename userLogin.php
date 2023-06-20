@@ -84,7 +84,7 @@
 
             if (password_verify($loginPassword, $hashedPassword)) {
                 // User login is successful
-                $_SESSION['username'] = $loginUserName;
+                $_SESSION['loginusername'] = $loginUserName;
                 header("Location: index.php");
                 exit();
             } else {
@@ -120,7 +120,7 @@
             $signupQuery = "INSERT INTO `user` (`first_name`, `last_name`, `username`, `email`, `password`) VALUES ('$firstName', '$lastName', '$userName', '$email', '$hashedPassword')";
 
             if (mysqli_query($conn, $signupQuery)) {
-                $_SESSION['username'] = $userName;
+                $_SESSION['loginusername'] = $userName;
                 header("Location: index.php");
                 exit();
             }

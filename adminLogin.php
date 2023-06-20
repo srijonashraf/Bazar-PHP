@@ -72,7 +72,7 @@
 
         if ($loginResult && mysqli_num_rows($loginResult) > 0) {
             // User login is successful
-            $_SESSION['admin_username'] = $loginUserName;
+            $_SESSION['adminloginUserName'] = $loginUserName;
             header("Location: adminPanel.php");
             exit();
         } else {

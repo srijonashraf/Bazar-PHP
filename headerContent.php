@@ -8,7 +8,7 @@
 session_start();
 
 if (isset($_POST['userlogout'])) {
-    unset($_SESSION['username']); // Unset the specific session variable
+    unset($_SESSION['loginusername']); // Unset the specific session variable
     header("Location: index.php"); // Redirect to the login page
     exit();
 }
@@ -26,12 +26,13 @@ if (isset($_POST['userlogout'])) {
             </div>
             <div class="header-right">
                 <?php
-                if (isset($_SESSION['username'])) {
+                if (isset($_SESSION['loginusername'])) {
                     // User is logged in
                     echo '<a href="#"><i class="fa-solid fa-cart-shopping px-3 text-muted"></i></a>';
-                    echo '<input type="submit" value="Logout" name="userlogout" class="login-button text-sm">';
+                    echo "Hi, " . $_SESSION['loginusername'] . "!";
+                    echo '<input type="submit" value="Logout" name="userlogout" class="login-button ms-2 text-sm">';
                 }
-                if (!isset($_SESSION['username'])) {
+                if (!isset($_SESSION['loginusername'])) {
                     echo ' <a href="userLogin.php" class="login-button text-sm">Login</a>';
                 }
                 ?>
