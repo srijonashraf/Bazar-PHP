@@ -28,6 +28,7 @@
       $("#productsSection").load("../home/products.php");
       $("#footerSection").load("../home/footer.php");
       $("#mainContentSection").load("../home/mainContent.php");
+      
     });
   </script>
 </body>

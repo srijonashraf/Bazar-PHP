@@ -6,7 +6,7 @@
 
 <body>
         <section class="left" id="leftSideMenuSection">
-                <a class="font-semibold font-x-large flex justify-center mt-3 gap" style="text-decoration: none; color:black" href="#">
+                <a class="font-semibold font-x-large flex justify-center mt-3 gap" style="text-decoration: none; color:black" href="/index.php">
                         <img src="./img/shopping-bag.png" class="h-auto logo" alt="Bazar">Bazar</a>
 
                 <ul class="mt-5 flex-col justify-center">
