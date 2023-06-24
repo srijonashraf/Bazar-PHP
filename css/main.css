@@ -142,20 +142,20 @@ body {
   box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 5px;
 }
 
-.header form {
+.header-wrapper{
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: auto;
 }
 
-.searchbar-top input[type="text"] {
+.searchbar-top {
   border: 0px;
   width: 30vw;
   height: 2.5rem;
 }
 
-.searchbar-top input[type="text"]:focus {
+.searchbar-top:focus {
   outline: 0;
 }
 
