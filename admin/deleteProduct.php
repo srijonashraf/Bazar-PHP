@@ -1,5 +1,5 @@
 <?php
-@include 'config.php';
+@include '../database/config.php';
 
 if (isset($_GET['delete'])) {
     $delete_id = $_GET['delete'];
@@ -19,7 +19,7 @@ if (isset($_GET['delete'])) {
         if (file_exists($image_path)) {
             unlink($image_path);
         }
-        header('Location: addProduct.php');
+        header('Location: ../admin/adminPanel.php');
         exit();
     } else {
         echo 'Error deleting the product.';

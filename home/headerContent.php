@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'headTagContainer.php'; ?>
+<?php include '../home/headTagContainer.php'; ?>
 
 
 <?php
@@ -9,7 +9,7 @@ session_start();
 
 if (isset($_POST['userlogout'])) {
     unset($_SESSION['loginusername']); // Unset the specific session variable
-    header("Location: index.php"); // Redirect to the login page
+    header("Location: ../index.php"); // Redirect to the login page
     exit();
 }
 
@@ -33,7 +33,7 @@ if (isset($_POST['userlogout'])) {
                     echo '<input type="submit" value="Logout" name="userlogout" class="login-button ms-2 text-sm">';
                 }
                 if (!isset($_SESSION['loginusername'])) {
-                    echo ' <a href="userLogin.php" class="login-button text-sm">Login</a>';
+                    echo ' <a href="../auth/userLogin.php" class="login-button text-sm">Login</a>';
                 }
                 ?>
             </div>
@@ -42,7 +42,7 @@ if (isset($_POST['userlogout'])) {
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <script src="./js/script.js"></script>
 
 </body>
 
