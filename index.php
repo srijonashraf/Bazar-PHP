@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'headTagContainer.php'; ?>
+<?php include './home/headTagContainer.php'; ?>
 
 <body>
   <script src="https://kit.fontawesome.com/0818cb3b83.js" crossorigin="anonymous"></script>
@@ -19,15 +19,15 @@
     </section>
   </div>
 
-  <script src="script.js"></script>
+  <script src="./js/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(function() {
-      $("#leftSideMenuSection").load("leftSideMenu.php");
-      $("#headerSection").load("headerContent.php");
-      $("#productsSection").load("products.php");
-      $("#footerSection").load("footer.php");
-      $("#mainContentSection").load("mainContent.php");
+      $("#leftSideMenuSection").load("../home/leftSideMenu.php");
+      $("#headerSection").load("../home/headerContent.php");
+      $("#productsSection").load("../home/products.php");
+      $("#footerSection").load("../home/footer.php");
+      $("#mainContentSection").load("../home/mainContent.php");
     });
   </script>
 </body>

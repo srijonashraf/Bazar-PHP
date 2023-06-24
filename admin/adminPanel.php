@@ -4,17 +4,18 @@ session_start();
 
 if (!isset($_SESSION['adminloginUserName'])) {
     // User is not logged in as admin, redirect to adminLogin.php
-    header("Location: adminLogin.php");
+    header("Location: ../auth/adminLogin.php");
     exit();
 }
 
 if (isset($_POST['adminlogout'])) {
     unset($_SESSION['adminloginUserName']); // Unset the specific session variable
-    header("Location: adminLogin.php"); // Redirect to the login page
+    header("Location: ../auth/adminLogin.php"); // Redirect to the login page
     exit();
 }
 
-@include 'config.php';
+ @include '../database/config.php';
+
 
 // Add Product
 if (isset($_POST['add_product'])) {
@@ -22,7 +23,7 @@ if (isset($_POST['add_product'])) {
     $product_price = $_POST['product_price'];
     $product_image = $_FILES['product_image']['name'];
     $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
-    $product_image_folder = 'uploaded_img/' . $product_image;
+    $product_image_folder = '../uploaded_img/' . $product_image;
 
     if (empty($product_name) || empty($product_price) || empty($product_image)) {
         $message[] = 'Please fill out all fields.';
@@ -104,7 +105,7 @@ if (isset($_GET['edit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/addProduct.css">
+    <link rel="stylesheet" href="../css/addProduct.css">
 
     <style>
         .navbar {
@@ -168,7 +169,7 @@ if (isset($_GET['edit'])) {
                     <input type="number" min="0" class="box" name="product_price" value="<?php echo $row['price']; ?>" placeholder="Enter the product price" required>
                     <input type="file" id="chooseFile" class="box" name="product_image" accept="image/png, image/jpeg, image/jpg">
                     <input type="submit" value="Update Product" name="update_product" class="btn">
-                    <a href="addProduct.php" class="btn">Go Back</a>
+                    <a href="../admin/adminPanel.php" class="btn">Go Back</a>
                 </form>
             <?php } else { ?>
                 <form action="" method="post" enctype="multipart/form-data">
@@ -197,12 +198,12 @@ if (isset($_GET['edit'])) {
                     while ($product_row = mysqli_fetch_assoc($select_products)) {
                     ?>
                         <tr>
-                            <td><img src="uploaded_img/<?php echo $product_row['image']; ?>" height="100" alt=""></td>
+                            <td><img src="../uploaded_img/<?php echo $product_row['image']; ?>" height="100" alt=""></td>
                             <td><?php echo $product_row['name']; ?></td>
                             <td><?php echo $product_row['price']; ?></td>
                             <td>
-                                <a class="btn" href="addProduct.php?edit=<?php echo $product_row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                                <a class="btn" onclick="return confirm('Are you sure you want to delete this product?')" href="deleteProduct.php?delete=<?php echo $product_row['id']; ?>"><i class="fa-solid fa-trash"></i> Delete</a>
+                                <a class="btn" href="../admin/adminPanel.php?edit=<?php echo $product_row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                                <a class="btn" onclick="return confirm('Are you sure you want to delete this product?')" href="../admin/deleteProduct.php?delete=<?php echo $product_row['id']; ?>"><i class="fa-solid fa-trash"></i> Delete</a>
                             </td>
                         </tr>
                     <?php } ?>

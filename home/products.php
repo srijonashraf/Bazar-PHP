@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'headTagContainer.php'; ?>
+<?php include '../home/headTagContainer.php'; ?>
+
 
 <body>
     <section class="products mx-4 py-3" id="productsSection">
@@ -9,7 +10,7 @@
         <div class="product-group flex mt-4">
             <?php
             // Include the database configuration file
-            include 'config.php';
+            include '../database/config.php';
 
             // Retrieve all products from the database
             $query = "SELECT * FROM products";
@@ -36,7 +37,7 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
