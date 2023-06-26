@@ -69,6 +69,8 @@ if (isset($_POST['userlogout'])) {
                 }
             });
         });
+
+        
     </script>
 
 </body>
