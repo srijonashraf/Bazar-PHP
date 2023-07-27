@@ -54,6 +54,7 @@
             });
         });
     </script>
+    <script src="../js/cartCount.js"></script>
 </body>
 
 </html>
