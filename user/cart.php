@@ -43,7 +43,7 @@
 
     <!-- Cart Items -->
     <h3 class="cart-title my-5" id="cartTitle" style="text-align:center !important ">Your Cart</h3>
-    <div id="cart-container" class="cart-items-container">
+    <div id="cart-container" class="cart-items-container container">
 
         <table class="table table-bordered table-striped">
             <thead>
