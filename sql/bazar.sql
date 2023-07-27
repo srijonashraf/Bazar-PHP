@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2023 at 07:20 PM
+-- Generation Time: Jul 27, 2023 at 12:29 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -69,7 +69,7 @@ INSERT INTO `products` (`id`, `name`, `price`, `image`) VALUES
 (42, 'Potato', 30.00, 'potato.png'),
 (43, 'Brinjal', 80.00, 'brinjal.png'),
 (44, 'Atta', 150.00, 'ashirvaad-atta.jpg'),
-(45, 'Lays Chips', 40.00, 'lays-kettle-cooked.jpeg'),
+(45, 'Lays Chips', 50.00, 'lays-kettle-cooked.jpeg'),
 (46, 'Drumstick', 250.00, 'drumstick.jpeg');
 
 -- --------------------------------------------------------
@@ -79,7 +79,7 @@ INSERT INTO `products` (`id`, `name`, `price`, `image`) VALUES
 --
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+  `id` varchar(5) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
@@ -92,20 +92,26 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `email`, `password`) VALUES
-(7, 'Amal Merrill', 'Bryar Sawyer', 'Cole Kane', 'zice@mailinator.com', 'Pa$$w0rd!'),
-(8, 'Quon Potter', 'Cally Lowery', 'srijon', 'sypud@mailinator.com', 'Pa$$w0rd!'),
-(9, 'Kasper Powell', 'Madison Haley', 'nabila', 'jywi@mailinator.com', 'Pa$$w0rd!'),
-(10, 'Eliana Wood', 'Mary Rivas', 'abir2002', 'fuxum@mailinator.com', 'abir2002'),
-(11, 'Philip Oneil', 'September Stafford', 'srijontest', 'wufu@mailinator.com', 'srijon1234'),
-(12, 'Rylee Cross', 'Eaton Gamble', 'srijontest22', 'dadaqotuw@mailinator.com', 'srijon1234'),
-(13, 'Latifah Webster', 'Timothy Boyd', 'Colby Hickman', 'mawi@mailinator.com', '$2y$10$MtAtis8H3DHsDOjVkrBmcORrfaQNQgSghW90ac/6faVAQIMPe/A0S'),
-(14, 'Morgan Figueroa', 'Karina Harmon', 'srijonashraf', 'remaqagyc@mailinator.com', '$2y$10$HbsbCJ1H9CkcvyTEZBUxGuLgSPGyWSwp3lXNSZY6I4KGoH8MOV0xa'),
-(15, 'Wang Bowers', 'Oprah Joyner', 'srijonnnnn', 'hikoson@mailinator.com', '$2y$10$TcCy4EQN3nUSvfVF/73BKeE7igBWF2NgM/jHNOcNcbexOcK9YVqlC'),
-(16, 'Zephr Bennett', 'Demetrius Weber', 'nabilaislam', 'kila@mailinator.com', '$2y$10$guKRfUE0LzovvqLkQSMDMuI8qexuFrjr8pTlVWpkBnT6KcfjgyVYS'),
-(17, 'Sybill Browning', 'Willow Melendez', 'assasa', 'syvilur@mailinator.com', '$2y$10$PVAOuEK.1f2P0jM0pgSCMuQIcvzA8MP3EgbjywvU2n4hLgc2mMsHu'),
-(18, 'Stephen Kirkland', 'Sybil Stone', 'dddd', 'qaduheqaw@mailinator.com', '$2y$10$UzqNxHRSNwLDqteQxktx3.4Oe6HJ/pJ8po69KgqL/7Y.mzmKAYBNG'),
-(19, 'Madison Rojas', 'Vance Salazar', 'Leigh', 'zesol@mailinator.com', '$2y$10$ySi9nZ5uxz4CKZ13VL3JXeY7ahtlGTxHnZT/3eJ8tJkP7wKLBBdPm'),
-(20, 'Srijon', 'Ashraf', 'srijonashrafbd', 'srijonashraf@gmail.com', '$2y$10$8DEJI5ciy75fcmw4onQD1upkGMi56PrhxDiadcHEp9OrZ3jSfx.6q');
+('00123', 'Latifah Webster', 'Timothy Boyd', 'Colby Hickman', 'mawi@mailinator.com', '$2y$10$MtAtis8H3DHsDOjVkrBmcORrfaQNQgSghW90ac/6faVAQIMPe/A0S'),
+('08649', 'Zephr Bennett', 'Demetrius Weber', 'nabilaislam', 'kila@mailinator.com', '$2y$10$guKRfUE0LzovvqLkQSMDMuI8qexuFrjr8pTlVWpkBnT6KcfjgyVYS'),
+('10046', 'Stephen Kirkland', 'Sybil Stone', 'dddd', 'qaduheqaw@mailinator.com', '$2y$10$UzqNxHRSNwLDqteQxktx3.4Oe6HJ/pJ8po69KgqL/7Y.mzmKAYBNG'),
+('13029', 'Srijon', 'Ashraf', 'srijonashrafbd', 'srijonashraf@gmail.com', '$2y$10$8DEJI5ciy75fcmw4onQD1upkGMi56PrhxDiadcHEp9OrZ3jSfx.6q'),
+('16713', 'Rylee Cross', 'Eaton Gamble', 'srijontest22', 'dadaqotuw@mailinator.com', 'srijon1234'),
+('18563', 'Eliana Wood', 'Mary Rivas', 'abir2002', 'fuxum@mailinator.com', 'abir2002'),
+('32779', 'Kasper Powell', 'Madison Haley', 'nabila', 'jywi@mailinator.com', 'Pa$$w0rd!'),
+('48443', 'Quon Potter', 'Cally Lowery', 'srijon', 'sypud@mailinator.com', 'Pa$$w0rd!'),
+('50477', 'Morgan Figueroa', 'Karina Harmon', 'srijonashraf', 'remaqagyc@mailinator.com', '$2y$10$HbsbCJ1H9CkcvyTEZBUxGuLgSPGyWSwp3lXNSZY6I4KGoH8MOV0xa'),
+('52016', 'Wang Bowers', 'Oprah Joyner', 'srijonnnnn', 'hikoson@mailinator.com', '$2y$10$TcCy4EQN3nUSvfVF/73BKeE7igBWF2NgM/jHNOcNcbexOcK9YVqlC'),
+('57148', 'Kasimir Edwards', 'Kennan Kidd', 'moriambd', 'jaduqada@mailinator.com', '$2y$10$VErG5kkd6DkEx9iegoAiYerIMVyuJ6sRPp6tWVB3gJP4gbBDdduqm'),
+('68552', 'Nabila', 'Islam', 'nabilam', 'nabila@gmail.com', '$2y$10$rIKIQxjyLf/flXSOKzXt2uFKYXXx8/u/xQ.1tuqn..NUGIa7aWG1C'),
+('69813', 'Amal Merrill', 'Bryar Sawyer', 'Cole Kane', 'zice@mailinator.com', 'Pa$$w0rd!'),
+('78763', 'Mirza ', 'Abir', 'mirzaabir121212', 'mirzaabir121212@gmail.com', '$2y$10$kmc1lgfP/jtqcuoWb33Z0O15UI.FxmSSt7G0ewQ/74Na26DHjHwM.'),
+('87198', 'Sybill Browning', 'Willow Melendez', 'assasa', 'syvilur@mailinator.com', '$2y$10$PVAOuEK.1f2P0jM0pgSCMuQIcvzA8MP3EgbjywvU2n4hLgc2mMsHu'),
+('87999', 'Nabila', 'Islam', 'islamnabila', 'islamnabila098765@gmail.com', '$2y$10$.fVttqYoZwcOP5F3kUZ/rOWaovpoPj9vKzBUVCBmqx6MJp6de4fJy'),
+('88159', 'Mahir', 'Faisal', 'mahirfaisal', 'mahirfaisalrocy28@gmail.com', '$2y$10$9b/QOXCsqC9evZeDgl5o3u5QennZ47Wt33t/I.CYxYuQ6Mffdm3iK'),
+('88633', 'Madison Rojas', 'Vance Salazar', 'Leigh', 'zesol@mailinator.com', '$2y$10$ySi9nZ5uxz4CKZ13VL3JXeY7ahtlGTxHnZT/3eJ8tJkP7wKLBBdPm'),
+('94480', 'Philip Oneil', 'September Stafford', 'srijontest', 'wufu@mailinator.com', 'srijon1234'),
+('99247', 'Nabila', 'Islam', 'moriam', 'moriam22@gmail.com', '$2y$10$aCwkwxUKmbyKy/B00nCJc.kMH9NIo6r165OMNg4aSZDgo5eLKMxJa');
 
 --
 -- Indexes for dumped tables
@@ -132,12 +138,6 @@ ALTER TABLE `user`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
