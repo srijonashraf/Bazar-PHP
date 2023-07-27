@@ -33,7 +33,7 @@
                             <div class="product-description flex-col">
                                 <a href="#" class="black font-500 mb-2"><?php echo $row['name']; ?></a>
                                 <span class="mb-2">$<?php echo $row['price']; ?></span>
-                                <!-- <button type="button" class="btn btn-primary">Add to Cart</button> -->3
+                                <!-- <button type="button" class="btn btn-primary">Add to Cart</button> -->
                                 <button type="button" class="btn btn-primary add-to-cart-btn" data-product-name="<?php echo $product['name']; ?>" data-product-price="<?php echo $product['price']; ?>" data-product-image="../uploaded_img/<?php echo $product['image']; ?>">Add to Cart</button>
                             </div>
                         </div>
@@ -75,7 +75,6 @@
         mysqli_close($conn);
         ?>
     </section>
-
     <script src="../js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/cartCount.js"></script>

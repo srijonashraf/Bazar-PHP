@@ -31,7 +31,7 @@ if (isset($_POST['userlogout'])) {
                     <?php
                     if (isset($_SESSION['loginusername'])) {
                         // User is logged in
-                        echo '<a href="../user/cart.php"><i class="fa-solid fa-cart-shopping px-3 text-muted"><sup id="cart-count">(<span id="cart-count-number">0</span>)</sup></i></a>';
+                        echo '<a onclick="cartButton(event)" href="../user/cart.php" id="cart-link"><i class="fa-solid fa-cart-shopping px-3 text-muted"><sup id="cart-count"><span id="cart-count-number">0</span></sup></i></a>';
                         echo "Hi, " . $_SESSION['loginusername'] . "!";
                         echo '<input type="submit" value="Logout" name="userlogout" class="login-button ms-2 text-sm">';
                     }
@@ -47,6 +47,11 @@ if (isset($_POST['userlogout'])) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="../js/script.js"></script>
+    <script src="../js/cartCount.js"></script>
+
+    <script>
+        const isLoggedIn = <?php echo isset($_SESSION['loginusername']) ? 'true' : 'false'; ?>;
+    </script>
 
     <script>
         $(function() {
@@ -70,6 +75,14 @@ if (isset($_POST['userlogout'])) {
                 }
             });
         });
+    </script>
+
+    <script>
+        function cartButton(event) {
+            if (document.getElementById("cart-count-number").innerHTML == 0) {
+                document.getElementById("cart-link").href = "../user/empty.php"; // Change the href attribute
+            }
+        }
     </script>
 
 </body>
