@@ -156,7 +156,7 @@ if (isset($_GET['edit'])) {
                         <input type="number" min="0" class="box" name="product_price" value="<?php echo $row['price']; ?>" placeholder="Enter the product price" required>
                         <input type="file" id="chooseFile" class="box" name="product_image" accept="image/png, image/jpeg, image/jpg">
                         <input type="submit" value="Update Product" name="update_product" class="btn">
-                        <a href="../admin/adminPanel.php" class="btn">Go Back</a>
+                        <a href="../admin/adminPanel.php" class="btn" id="back_btn" style="margin: 10px 0px;">Go Back</a>
                     </form>
                 <?php } else { ?>
                     <form action="" method="post" enctype="multipart/form-data">
@@ -190,7 +190,7 @@ if (isset($_GET['edit'])) {
                                 <td><?php echo $product_row['name']; ?></td>
                                 <td><?php echo $product_row['price']; ?></td>
                                 <td>
-                                    <a class="btn" href="../admin/adminPanel.php?edit=<?php echo $product_row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                                    <a class="btn" style="margin: 10px 0px;" href=" ../admin/adminPanel.php?edit=<?php echo $product_row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                                     <a class="btn" onclick="return confirm('Are you sure you want to delete this product?')" href="../admin/deleteProduct.php?delete=<?php echo $product_row['id']; ?>"><i class="fa-solid fa-trash"></i> Delete</a>
                                 </td>
                             </tr>
@@ -200,7 +200,7 @@ if (isset($_GET['edit'])) {
             </div>
         </div>
 
- 
+
     </div>
 
 </body>
